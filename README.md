@@ -4,7 +4,7 @@
 
 # ChatZen - Chat App
 
-ChatZen is a modern and user-friendly chat application project. It provides a simple and intuitive platform for users to connect and engage in conversations with their friends and colleagues.
+Chatzen is a modern and user-friendly chat application project. It provides a simple and intuitive platform for users to connect and engage in conversations with their friends and colleagues.
 
 **Live Demo**: [Chatzen](#)
 
@@ -21,7 +21,7 @@ ChatZen is a modern and user-friendly chat application project. It provides a si
 
 ## Features
 
-ChatZen offers a range of features to enhance your chat experience:
+Chatzen offers a range of features to enhance your chat experience:
 
 1. **Real-Time Messaging**: Chat with friends and colleagues in real-time, making conversations feel natural and engaging.
 
