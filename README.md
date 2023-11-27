@@ -14,6 +14,7 @@ Chatzen is a modern and user-friendly chat application project. It provides a si
 - **TypeScript**
 - **Redux**
 - **Tailwind**
+- **JWT**
 - **Socket.io**
 - **Node.js**
 - **Express.js**
