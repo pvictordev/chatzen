@@ -2,7 +2,7 @@
   <img width="200" height="200" src="./src/img/chatzen-icon.png">
 </p>
 
-# ChatZen - Chat App
+# Chatzen - Chat App
 
 Chatzen is a modern and user-friendly chat application project. It provides a simple and intuitive platform for users to connect and engage in conversations with their friends and colleagues.
 
