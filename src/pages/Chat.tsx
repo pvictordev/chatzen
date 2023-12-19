@@ -3,10 +3,11 @@ import { BsEmojiLaughing } from "react-icons/bs"; //hover for emoji also
 import { FiSend } from "react-icons/fi";
 import { CiCirclePlus } from "react-icons/ci";
 import { IoIosInformationCircle } from "react-icons/io";
-import { BsReply } from "react-icons/bs"; // hover for reply
-import { ImFilesEmpty } from "react-icons/im"; // hover for files popup
-import { FaRegUser } from "react-icons/fa6"; // for header-profile popup profile
-import { RxExit } from "react-icons/rx"; //for header-profile popup signout
+// import { BsReply } from "react-icons/bs"; // hover for reply
+// import { ImFilesEmpty } from "react-icons/im"; // hover for files popup
+// import { FaRegUser } from "react-icons/fa6"; // for header-profile popup profile
+// import { RxExit } from "react-icons/rx"; //for header-profile popup signout
+// import { IoMdClose } from "react-icons/io"; //for new conversation popup close
 
 export default function Chat() {
   return (
@@ -26,7 +27,8 @@ export default function Chat() {
                 <div className="conversation-profile">image</div>
                 <div className="conversation-info">
                   <div>name</div>
-                  <span>message</span> <span>12:30</span>
+                  <span>message</span>
+                  <span>12:30</span>
                 </div>
               </div>
             </div>
