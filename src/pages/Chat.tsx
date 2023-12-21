@@ -1,50 +1,125 @@
 import { IoImagesOutline } from "react-icons/io5";
-import { BsEmojiLaughing } from "react-icons/bs"; //hover for emoji also
+import { BsEmojiLaughing, BsPerson, BsReply } from "react-icons/bs";
 import { FiSend } from "react-icons/fi";
 import { IoIosInformationCircle } from "react-icons/io";
-// import { BsReply } from "react-icons/bs"; // hover for reply
-// import { ImFilesEmpty } from "react-icons/im"; // hover for files popup
+import { ImFilesEmpty } from "react-icons/im";
 import { FaRegUser } from "react-icons/fa6"; // for header-profile popup profile
-// import { RxExit } from "react-icons/rx"; //for header-profile popup signout
+import { FaRegTrashAlt } from "react-icons/fa";
+import { RxExit } from "react-icons/rx"; //for header-profile popup signout
 // import { IoMdClose } from "react-icons/io"; //for new conversation popup close
 import logo from "../assets/chatzen-icon.png";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 
 export default function Chat() {
   return (
     <div className="chat w-full h-screen justify-center">
       <div className="chat-container flex">
         <div className="container-sidebar w-96 h-screen">
-          <header className="siderbar-header flex justify-between p-3 border-b-2">
+          <header className="siderbar-header flex justify-between p-3 border-y">
             <div className="header-logo flex items-center gap-x-2">
               <img className="w-8 h-8" src={logo} alt="" />
               <span className="font-medium text-2xl">Chatzen</span>
             </div>
-            <div className="header-functionality flex items-center gap-x-3">
-              <span className="w-10 h-10 rounded-full flex items-center justify-center border-2 bg-slate-200 text-slate-900">
-                +
-              </span>
-              <div className="header-profile">
-                {" "}
-                <FaRegUser className="w-10 h-10 rounded-full border-2 border-slate-900" />
+            <div className="header-functionality flex items-center gap-x-5">
+              <div className="header-functionality__light-mode">
+                <MdLightMode className="w-10 h-10 rounded-full  text-slate-500 border-2 border-slate-500 p-1 cursor-pointer" />
               </div>
+              <Dialog>
+                <DialogTrigger className="flex justify-center">
+                  <span className="w-10 h-10 text-2xl rounded-full flex items-center justify-center border-2 bg-slate-200 text-slate-900">
+                    +
+                  </span>
+                </DialogTrigger>
+                <DialogContent className="max-h-full">
+                  <DialogHeader>
+                    <DialogTitle className="border-b pb-2">
+                      New Conversation
+                    </DialogTitle>
+                    <DialogDescription className="flex flex-col">
+                      <div className="conversation-list h-80 overflow-y-scroll">
+                        <div className="chat-item flex items-center gap-x-2 h-20 border-b">
+                          <input type="checkbox" className="w-5 h-5" />
+                          <div className="chat-item__profile">
+                            <FaRegUser className="w-10 h-10 rounded-full border-2 border-black" />
+                          </div>
+                          <span className="text-xl">name</span>
+                        </div>
+                        <div className="chat-item flex items-center gap-x-2 h-20 border-b">
+                          <input type="checkbox" className="w-5 h-5" />
+                          <div className="chat-item__profile">
+                            <FaRegUser className="w-10 h-10 rounded-full border-2 border-black" />
+                          </div>
+                          <span className="text-xl">name</span>
+                        </div>
+                        <div className="chat-item flex items-center gap-x-2 h-20 border-b">
+                          <input type="checkbox" className="w-5 h-5" />
+                          <div className="chat-item__profile">
+                            <FaRegUser className="w-10 h-10 rounded-full border-2 border-black" />
+                          </div>
+                          <span className="text-xl">name</span>
+                        </div>
+                        <div className="chat-item flex items-center gap-x-2 h-20 border-b">
+                          <input type="checkbox" className="w-5 h-5" />
+                          <div className="chat-item__profile">
+                            <FaRegUser className="w-10 h-10 rounded-full border-2 border-black" />
+                          </div>
+                          <span className="text-xl">name</span>
+                        </div>
+                        <div className="chat-item flex items-center gap-x-2 h-20 border-b">
+                          <input type="checkbox" className="w-5 h-5" />
+                          <div className="chat-item__profile">
+                            <FaRegUser className="w-10 h-10 rounded-full border-2 border-black" />
+                          </div>
+                          <span className="text-xl">name</span>
+                        </div>
+                      </div>
+                      <Button className="mt-5">Start Conversation</Button>
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+
+              <Popover>
+                <PopoverTrigger>
+                  {" "}
+                  <div className="header-profile">
+                    {" "}
+                    <FaRegUser className="w-10 h-10 rounded-full border-2 border-slate-900 cursor-pointer" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="flex flex-col gap-y-3 text-lg">
+                  <div className="flex items-center gap-x-1 ">
+                    <BsPerson />
+                    <span>Profile</span>
+                  </div>
+                  <div className="flex items-center gap-x-1 text-red-500">
+                    <RxExit />
+                    <span>Log out</span>
+                  </div>
+                </PopoverContent>
+              </Popover>
             </div>
           </header>
-          <div className="siderbar-conversations">
+          <div
+            className="siderbar-conversations overflow-y-scroll no-scrollbar"
+            style={{ height: "calc(100% - 65.6px)" }}
+          >
             <div className="conversation-container">
-              <div className="conversation-block flex items-center border-b-2 h-28 p-3 gap-x-2">
-                <div className="conversation-profile">
-                  <FaRegUser className="w-16 h-16 rounded-full border-2 border-slate-900" />
-                </div>
-                <div className="conversation-info flex flex-col">
-                  <div>name</div>
-                  <div className="flex gap-x-1 text-slate-500">
-                    <span>message</span>
-                    <span>•</span>
-                    <span>12:30</span>
-                  </div>
-                </div>
-              </div>
-              <div className="conversation-block flex items-center border-b-2 h-28 p-3 gap-x-2">
+              <div className="conversation-block flex items-center border-b h-28 p-3 gap-x-2 hover:bg-slate-200 cursor-pointer">
                 <div className="conversation-profile">
                   <FaRegUser className="w-16 h-16 rounded-full border-2 border-slate-900" />
                 </div>
@@ -61,26 +136,85 @@ export default function Chat() {
           </div>
         </div>
 
-        <div className="container-chat flex-1 bg-slate-100 flex flex-col min-h-screen">
+        <div className="container-chat flex-1 bg-slate-100 flex flex-col h-screen">
           <header className="chat-header flex justify-between items-center p-3 border-b-2">
             <div className="chat-profile flex items-center gap-x-2">
               <FaRegUser className="w-10 h-10 rounded-full border-2 border-slate-900" />
               <span className="font-medium">name</span>
             </div>
             <div className="chat-info">
-              <IoIosInformationCircle className="w-6 h-6 text-slate-500" />
+              <Dialog>
+                <DialogTrigger className="flex justify-center">
+                  <IoIosInformationCircle className="w-6 h-6 text-slate-500" />
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle className="border-b mb-2 pb-2">
+                      Conversation settings
+                    </DialogTitle>
+                    <DialogDescription>
+                      <div className="flex items-center gap-x-1">
+                        <ImFilesEmpty />
+                        <span>View Files</span>
+                      </div>
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+              {/* <IoIosInformationCircle className="w-6 h-6 text-slate-500" /> */}
             </div>
           </header>
+          {/* use this styles in chat-section if no messages: items-center justify-center */}
 
-          <section className="chat-section">
-            <div className="section-no-messages absolute top-1/2 right-1/3">
-              No messages
-              {/* <img src="" alt="" /> */}
-            </div>
-            {/* <div className="section__message">
-              <div>message 1</div>
-              <div>message 2</div>
+          <section
+            className="chat-section flex flex-col-reverse justify-end"
+            style={{ height: "calc(100% - 143px)" }}
+          >
+            {/* <div className="section-no-messages flex flex-col items-center gap-y-4">
+              <img
+                src="https://booru.vineshroom.net/_images/ed0495e29c1296c6cb74e1e4bcf770b0/95138%20-%20animated%20artist%3AMagnetismMelodic%20chat%20gif%20goblin%20goblinsauce%20streamer%3Avinny.gif"
+                className="w-50 h-48"
+                alt=""
+              />
+              <span className="text-slate-500">
+                No message recently, start chatting now
+              </span>
             </div> */}
+            <div className="section-message overflow-y-scroll no-scrollbar">
+              <div className="message-left flex flex-row-reverse my-10 items-center justify-end relative round">
+                <div className="message-left__block flex items-center gap-x-3">
+                  <div className="message-left__text p-3 max-w-xl ml-8 relative rounded-left bg-white shadow-lg">
+                    <span className="text-black">message left</span>
+                  </div>
+                  <div className="message-left-actions flex gap-x-3 text-slate-600">
+                    <div>
+                      <BsEmojiLaughing />
+                    </div>
+                    <div>
+                      <BsReply />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="message-right flex flex-row-reverse my-10 items-center justify-start relative round">
+                <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
+                  <div className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg">
+                    <span className="text-white">message right</span>
+                  </div>
+                  <div className="message-left-actions flex gap-x-3 text-slate-600">
+                    <div>
+                      <BsReply />
+                    </div>
+                    <div>
+                      <BsEmojiLaughing />
+                    </div>
+                    <div>
+                      <FaRegTrashAlt />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
 
           <div className="chat-message mt-auto w-full border-t-2">

@@ -17,7 +17,7 @@ Chatzen is a modern and user-friendly chat application project. It provides a si
 - **Socket.io**
 - **Node.js**
 - **Express.js**
-- **MongoDB**
+- **Firebase**
 
 ## Features
 
