@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { MdLightMode } from "react-icons/md";
+// import { useTheme } from "../components/ui/theme-provider";
 
 export default function Auth() {
+  // const { setTheme } = useTheme();
   return (
     <section className="auth w-full h-screen flex items-center justify-center px-5 relative">
       <a href="https://github.com/pvictordev" target="_blank">
@@ -17,7 +19,10 @@ export default function Auth() {
         />
       </a>
       <div className="header-functionality__light-mode">
-        <MdLightMode className="w-10 h-10 absolute top-3 left-3 rounded-full  text-slate-500 border-2 border-slate-500 p-1 cursor-pointer" />
+        <MdLightMode
+          className="w-10 h-10 absolute top-3 left-3 rounded-full  text-slate-500 border-2 border-slate-500 p-1 cursor-pointer"
+          // onCLick={() => setTheme("dark")}
+        />
       </div>
       <div className="auth-container flex justify-center items-center text-primary max-md:flex-col ">
         <div className="auth-gif">

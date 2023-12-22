@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { IoImagesOutline } from "react-icons/io5";
 import { BsEmojiLaughing, BsPerson, BsReply } from "react-icons/bs";
 import { FiSend } from "react-icons/fi";
@@ -8,7 +9,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { RxExit } from "react-icons/rx"; //for header-profile popup signout
 // import { IoMdClose } from "react-icons/io"; //for new conversation popup close
 import logo from "../assets/chatzen-icon.png";
-import { MdLightMode, MdDarkMode } from "react-icons/md";
+import { MdLightMode, MdOutlineKeyboardArrowLeft } from "react-icons/md"; //MdDarkMode
 import {
   Dialog,
   DialogContent,
@@ -25,10 +26,36 @@ import {
 import { Button } from "@/components/ui/button";
 
 export default function Chat() {
+  const [showDialog, setShowDialog] = useState<boolean>(true);
+
+  const handleDialog = (): void => {
+    setShowDialog(!showDialog);
+  };
+
+  //switch between chat and sidebar
+
+  // {
+  //   showDialog
+  //     ? "container-chat flex-1 bg-slate-100 flex flex-col h-screen"
+  //     : "container-chat bg-slate-100 h-screen hidden";
+  // }
+
+  // {
+  //   showDialog
+  //     ? "container-sidebar w-96 h-screen block max-md:hidden"
+  //     : "container-sidebar w-96 h-screen max-md:hidden hidden";
+  // }
+
   return (
     <div className="chat w-full h-screen justify-center">
       <div className="chat-container flex">
-        <div className="container-sidebar w-96 h-screen">
+        <div
+          className={
+            showDialog
+              ? "container-sidebar w-96 h-screen max-md:hidden"
+              : "container-sidebar w-full h-screen "
+          }
+        >
           <header className="siderbar-header flex justify-between p-3 border-y">
             <div className="header-logo flex items-center gap-x-2">
               <img className="w-8 h-8" src={logo} alt="" />
@@ -51,27 +78,6 @@ export default function Chat() {
                     </DialogTitle>
                     <DialogDescription className="flex flex-col">
                       <div className="conversation-list h-80 overflow-y-scroll">
-                        <div className="chat-item flex items-center gap-x-2 h-20 border-b">
-                          <input type="checkbox" className="w-5 h-5" />
-                          <div className="chat-item__profile">
-                            <FaRegUser className="w-10 h-10 rounded-full border-2 border-black" />
-                          </div>
-                          <span className="text-xl">name</span>
-                        </div>
-                        <div className="chat-item flex items-center gap-x-2 h-20 border-b">
-                          <input type="checkbox" className="w-5 h-5" />
-                          <div className="chat-item__profile">
-                            <FaRegUser className="w-10 h-10 rounded-full border-2 border-black" />
-                          </div>
-                          <span className="text-xl">name</span>
-                        </div>
-                        <div className="chat-item flex items-center gap-x-2 h-20 border-b">
-                          <input type="checkbox" className="w-5 h-5" />
-                          <div className="chat-item__profile">
-                            <FaRegUser className="w-10 h-10 rounded-full border-2 border-black" />
-                          </div>
-                          <span className="text-xl">name</span>
-                        </div>
                         <div className="chat-item flex items-center gap-x-2 h-20 border-b">
                           <input type="checkbox" className="w-5 h-5" />
                           <div className="chat-item__profile">
@@ -119,7 +125,10 @@ export default function Chat() {
             style={{ height: "calc(100% - 65.6px)" }}
           >
             <div className="conversation-container">
-              <div className="conversation-block flex items-center border-b h-28 p-3 gap-x-2 hover:bg-slate-200 cursor-pointer">
+              <div
+                className="conversation-block flex items-center border-b h-28 p-3 gap-x-2 hover:bg-slate-200 cursor-pointer"
+                onClick={() => handleDialog()}
+              >
                 <div className="conversation-profile">
                   <FaRegUser className="w-16 h-16 rounded-full border-2 border-slate-900" />
                 </div>
@@ -136,9 +145,21 @@ export default function Chat() {
           </div>
         </div>
 
-        <div className="container-chat flex-1 bg-slate-100 flex flex-col h-screen">
+        <div
+          className={
+            showDialog
+              ? "container-chat flex-1 bg-slate-100 flex flex-col h-screen"
+              : "container-chat bg-slate-100 h-screen hidden"
+          }
+        >
           <header className="chat-header flex justify-between items-center p-3 border-b-2">
             <div className="chat-profile flex items-center gap-x-2">
+              <div>
+                <MdOutlineKeyboardArrowLeft
+                  className="w-10 h-10 text-appColor cursor-pointer md:hidden"
+                  onClick={() => handleDialog()}
+                />
+              </div>
               <FaRegUser className="w-10 h-10 rounded-full border-2 border-slate-900" />
               <span className="font-medium">name</span>
             </div>
