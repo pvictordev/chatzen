@@ -9,7 +9,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { RxExit } from "react-icons/rx"; //for header-profile popup signout
 // import { IoMdClose } from "react-icons/io"; //for new conversation popup close
 import logo from "../assets/chatzen-icon.png";
-import { MdLightMode, MdOutlineKeyboardArrowLeft } from "react-icons/md"; //MdDarkMode
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md"; //MdDarkMode
 import {
   Dialog,
   DialogContent,
@@ -24,6 +24,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Chat() {
   const [showDialog, setShowDialog] = useState<boolean>(true);
@@ -63,7 +64,8 @@ export default function Chat() {
             </div>
             <div className="header-functionality flex items-center gap-x-5">
               <div className="header-functionality__light-mode">
-                <MdLightMode className="w-10 h-10 rounded-full  text-slate-500 border-2 border-slate-500 p-1 cursor-pointer" />
+                {/* <MdLightMode className="w-10 h-10 rounded-full  text-slate-500 border-2 border-slate-500 p-1 cursor-pointer" /> */}
+                <ModeToggle />
               </div>
               <Dialog>
                 <DialogTrigger className="flex justify-center">

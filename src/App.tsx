@@ -7,14 +7,14 @@ import { ThemeProvider } from "./components/ui/theme-provider.tsx";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <div className="app">
+    <div className="app">
+      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
         <Routes>
           <Route path="/" element={<Auth />} />
           <Route path="/chat" element={<Chat />} />
         </Routes>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </div>
   );
 }
 
