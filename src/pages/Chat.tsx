@@ -4,12 +4,11 @@ import { BsEmojiLaughing, BsPerson, BsReply } from "react-icons/bs";
 import { FiSend } from "react-icons/fi";
 import { IoIosInformationCircle } from "react-icons/io";
 import { ImFilesEmpty } from "react-icons/im";
-import { FaRegUser } from "react-icons/fa6"; // for header-profile popup profile
+import { FaRegUser } from "react-icons/fa6";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { RxExit } from "react-icons/rx"; //for header-profile popup signout
-// import { IoMdClose } from "react-icons/io"; //for new conversation popup close
+import { RxExit } from "react-icons/rx";
 import logo from "../assets/chatzen-icon.png";
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md"; //MdDarkMode
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import {
   Dialog,
   DialogContent,
@@ -27,25 +26,17 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Chat() {
+  //switch between chat and sidebar
   const [showDialog, setShowDialog] = useState<boolean>(true);
-
   const handleDialog = (): void => {
     setShowDialog(!showDialog);
   };
 
-  //switch between chat and sidebar
-
-  // {
-  //   showDialog
-  //     ? "container-chat flex-1 bg-slate-100 flex flex-col h-screen"
-  //     : "container-chat bg-slate-100 h-screen hidden";
-  // }
-
-  // {
-  //   showDialog
-  //     ? "container-sidebar w-96 h-screen block max-md:hidden"
-  //     : "container-sidebar w-96 h-screen max-md:hidden hidden";
-  // }
+  //show message actions
+  const [showMessageActions, setShowMessageActions] = useState<boolean>(false);
+  const messageHover = (): void => {
+    setShowMessageActions(!showMessageActions);
+  };
 
   return (
     <div className="chat w-full h-screen justify-center">
@@ -209,7 +200,7 @@ export default function Chat() {
                   <div className="message-left__text p-3 max-w-xl ml-8 relative rounded-left bg-white shadow-lg">
                     <span className="text-black">message left</span>
                   </div>
-                  <div className="message-left-actions flex gap-x-3 text-slate-600">
+                  <div className="message-left-actions gap-x-3 text-slate-600 flex">
                     <div>
                       <BsEmojiLaughing />
                     </div>
