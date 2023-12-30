@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="200" height="200" src="./src/img/chatzen-icon.png">
+  <img width="200" height="200" src="./src/assets/chatzen-icon.png">
 </p>
 
 # Chatzen - Chat App
