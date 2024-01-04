@@ -33,10 +33,10 @@ export default function Chat() {
   };
 
   //show message actions
-  const [showMessageActions, setShowMessageActions] = useState<boolean>(false);
-  const messageHover = (): void => {
-    setShowMessageActions(!showMessageActions);
-  };
+  // const [showMessageActions, setShowMessageActions] = useState<boolean>(false);
+  // const messageHover = (): void => {
+  //   setShowMessageActions(!showMessageActions);
+  // };
 
   return (
     <div className="chat w-full h-screen justify-center">
@@ -97,7 +97,11 @@ export default function Chat() {
                   {" "}
                   <div className="header-profile">
                     {" "}
-                    <FaRegUser className="w-10 h-10 rounded-full border-2 border-slate-900 cursor-pointer" />
+                    <img
+                      src="https://icones.pro/wp-content/uploads/2021/05/symbole-de-l-homme-violet.png"
+                      alt=""
+                      className="w-10 h-10 rounded-full cursor-pointer"
+                    />
                   </div>
                 </PopoverTrigger>
                 <PopoverContent className="flex flex-col gap-y-3 text-lg">
@@ -123,7 +127,11 @@ export default function Chat() {
                 onClick={() => handleDialog()}
               >
                 <div className="conversation-profile">
-                  <FaRegUser className="w-16 h-16 rounded-full border-2 border-slate-900" />
+                  <img
+                    src="https://icones.pro/wp-content/uploads/2021/05/symbole-de-l-homme-violet.png"
+                    alt=""
+                    className="w-16 h-16 rounded-full cursor-pointer"
+                  />
                 </div>
                 <div className="conversation-info flex flex-col">
                   <div>name</div>
@@ -153,7 +161,12 @@ export default function Chat() {
                   onClick={() => handleDialog()}
                 />
               </div>
-              <FaRegUser className="w-10 h-10 rounded-full border-2 border-slate-900" />
+              {/* <FaRegUser className="w-10 h-10 rounded-full border-2 border-slate-900" /> */}
+              <img
+                src="https://icones.pro/wp-content/uploads/2021/05/symbole-de-l-homme-violet.png"
+                alt=""
+                className="w-10 h-10 rounded-full cursor-pointer"
+              />
               <span className="font-medium">name</span>
             </div>
             <div className="chat-info">
@@ -214,6 +227,28 @@ export default function Chat() {
                 <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
                   <div className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg">
                     <span className="text-white">message right</span>
+                  </div>
+                  <div className="message-left-actions flex gap-x-3 text-slate-600">
+                    <div>
+                      <BsReply />
+                    </div>
+                    <div>
+                      <BsEmojiLaughing />
+                    </div>
+                    <div>
+                      <FaRegTrashAlt />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="message-right flex flex-row-reverse my-10 items-center justify-start relative">
+                <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
+                  <div className="message-left__text max-w-xl mr-8 relative shadow-lg">
+                    <img
+                      src="https://www.befunky.com/images/prismic/5ddfea42-7377-4bef-9ac4-f3bd407d52ab_landing-photo-to-cartoon-img5.jpeg?auto=avif,webp&format=jpg&width=863"
+                      alt=""
+                      className="w-72 h-72 object-cover"
+                    />
                   </div>
                   <div className="message-left-actions flex gap-x-3 text-slate-600">
                     <div>
