@@ -32,11 +32,11 @@ export default function Chat() {
     setShowDialog(!showDialog);
   };
 
-  //show message actions
-  // const [showMessageActions, setShowMessageActions] = useState<boolean>(false);
-  // const messageHover = (): void => {
-  //   setShowMessageActions(!showMessageActions);
-  // };
+  // show message actions
+  const [showMessageActionsLeft, setShowMessageActionsLeft] =
+    useState<boolean>(false);
+  const [showMessageActionsRight, setShowMessageActionsRight] =
+    useState<boolean>(false);
 
   return (
     <div className="chat w-full h-screen justify-center">
@@ -210,10 +210,20 @@ export default function Chat() {
             <div className="section-message overflow-y-scroll no-scrollbar">
               <div className="message-left flex flex-row-reverse my-10 items-center justify-end relative round">
                 <div className="message-left__block flex items-center gap-x-3">
-                  <div className="message-left__text p-3 max-w-xl ml-8 relative rounded-left bg-white shadow-lg">
+                  <div
+                    className="message-left__text p-3 max-w-xl ml-8 relative rounded-left bg-white shadow-lg"
+                    onMouseEnter={() => setShowMessageActionsLeft(true)}
+                    onMouseLeave={() => setShowMessageActionsLeft(false)}
+                  >
                     <span className="text-black">message left</span>
                   </div>
-                  <div className="message-left-actions gap-x-3 text-slate-600 flex">
+                  <div
+                    className={
+                      showMessageActionsLeft
+                        ? "message-left-actions gap-x-3 text-slate-600 flex"
+                        : "hidden"
+                    }
+                  >
                     <div>
                       <BsEmojiLaughing />
                     </div>
@@ -225,10 +235,20 @@ export default function Chat() {
               </div>
               <div className="message-right flex flex-row-reverse my-10 items-center justify-start relative round">
                 <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
-                  <div className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg">
+                  <div
+                    className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg"
+                    onMouseEnter={() => setShowMessageActionsRight(true)}
+                    onMouseLeave={() => setShowMessageActionsRight(false)}
+                  >
                     <span className="text-white">message right</span>
                   </div>
-                  <div className="message-left-actions flex gap-x-3 text-slate-600">
+                  <div
+                    className={
+                      showMessageActionsRight
+                        ? "message-left-actions gap-x-3 text-slate-600 flex"
+                        : "hidden"
+                    }
+                  >
                     <div>
                       <BsReply />
                     </div>
