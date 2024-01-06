@@ -55,7 +55,6 @@ export default function Chat() {
             </div>
             <div className="header-functionality flex items-center gap-x-5">
               <div className="header-functionality__light-mode">
-                {/* <MdLightMode className="w-10 h-10 rounded-full  text-slate-500 border-2 border-slate-500 p-1 cursor-pointer" /> */}
                 <ModeToggle />
               </div>
               <Dialog>
@@ -188,10 +187,8 @@ export default function Chat() {
                   </DialogHeader>
                 </DialogContent>
               </Dialog>
-              {/* <IoIosInformationCircle className="w-6 h-6 text-slate-500" /> */}
             </div>
           </header>
-          {/* use this styles in chat-section if no messages: items-center justify-center */}
 
           <section
             className="chat-section flex flex-col-reverse justify-end"
@@ -209,12 +206,12 @@ export default function Chat() {
             </div> */}
             <div className="section-message overflow-y-scroll no-scrollbar">
               <div className="message-left flex flex-row-reverse my-10 items-center justify-end relative round">
-                <div className="message-left__block flex items-center gap-x-3">
-                  <div
-                    className="message-left__text p-3 max-w-xl ml-8 relative rounded-left bg-white shadow-lg"
-                    onMouseEnter={() => setShowMessageActionsLeft(true)}
-                    onMouseLeave={() => setShowMessageActionsLeft(false)}
-                  >
+                <div
+                  className="message-left__block flex items-center gap-x-3"
+                  onMouseEnter={() => setShowMessageActionsLeft(true)}
+                  onMouseLeave={() => setShowMessageActionsLeft(false)}
+                >
+                  <div className="message-left__text p-3 max-w-xl ml-8 relative rounded-left bg-white shadow-lg">
                     <span className="text-black">message left</span>
                   </div>
                   <div
@@ -234,12 +231,12 @@ export default function Chat() {
                 </div>
               </div>
               <div className="message-right flex flex-row-reverse my-10 items-center justify-start relative round">
-                <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
-                  <div
-                    className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg"
-                    onMouseEnter={() => setShowMessageActionsRight(true)}
-                    onMouseLeave={() => setShowMessageActionsRight(false)}
-                  >
+                <div
+                  className="message-right__block flex flex-row-reverse items-center gap-x-3"
+                  onMouseEnter={() => setShowMessageActionsRight(true)}
+                  onMouseLeave={() => setShowMessageActionsRight(false)}
+                >
+                  <div className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg">
                     <span className="text-white">message right</span>
                   </div>
                   <div
