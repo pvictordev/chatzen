@@ -37,6 +37,8 @@ export default function Chat() {
     useState<boolean>(false);
   const [showMessageActionsRight, setShowMessageActionsRight] =
     useState<boolean>(false);
+  const [showImageActionsRight, setShowImageActionsRight] =
+    useState<boolean>(false);
 
   return (
     <div className="chat w-full h-screen justify-center">
@@ -259,7 +261,11 @@ export default function Chat() {
                 </div>
               </div>
               <div className="message-right flex flex-row-reverse my-10 items-center justify-start relative">
-                <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
+                <div
+                  className="message-right__block flex flex-row-reverse items-center gap-x-3"
+                  onMouseEnter={() => setShowImageActionsRight(true)}
+                  onMouseLeave={() => setShowImageActionsRight(false)}
+                >
                   <div className="message-left__text max-w-xl mr-8 relative shadow-lg">
                     <img
                       src="https://www.befunky.com/images/prismic/5ddfea42-7377-4bef-9ac4-f3bd407d52ab_landing-photo-to-cartoon-img5.jpeg?auto=avif,webp&format=jpg&width=863"
@@ -267,7 +273,13 @@ export default function Chat() {
                       className="w-72 h-72 object-cover"
                     />
                   </div>
-                  <div className="message-left-actions flex gap-x-3 text-slate-600">
+                  <div
+                    className={
+                      showImageActionsRight
+                        ? "message-left-actions gap-x-3 text-slate-600 flex"
+                        : "hidden"
+                    }
+                  >
                     <div>
                       <BsReply />
                     </div>
