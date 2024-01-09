@@ -207,12 +207,12 @@ export default function Chat() {
               </span>
             </div> */}
             <div className="section-message overflow-y-scroll no-scrollbar">
-              <div className="message-left flex flex-row-reverse my-10 items-center justify-end relative round">
-                <div
-                  className="message-left__block flex items-center gap-x-3"
-                  onMouseEnter={() => setShowMessageActionsLeft(true)}
-                  onMouseLeave={() => setShowMessageActionsLeft(false)}
-                >
+              <div
+                className="message-left flex flex-row-reverse my-10 items-center justify-end relative round"
+                onMouseEnter={() => setShowMessageActionsLeft(true)}
+                onMouseLeave={() => setShowMessageActionsLeft(false)}
+              >
+                <div className="message-left__block flex items-center gap-x-3">
                   <div className="message-left__text p-3 max-w-xl ml-8 relative rounded-left bg-white shadow-lg">
                     <span className="text-black">message left</span>
                   </div>
@@ -224,20 +224,21 @@ export default function Chat() {
                     }
                   >
                     <div>
-                      <BsEmojiLaughing />
+                      <BsEmojiLaughing className="cursor-pointer" />
                     </div>
                     <div>
-                      <BsReply />
+                      <BsReply className="cursor-pointer" />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="message-right flex flex-row-reverse my-10 items-center justify-start relative round">
-                <div
-                  className="message-right__block flex flex-row-reverse items-center gap-x-3"
-                  onMouseEnter={() => setShowMessageActionsRight(true)}
-                  onMouseLeave={() => setShowMessageActionsRight(false)}
-                >
+
+              <div
+                className="message-right flex flex-row-reverse my-10 items-center justify-start relative round"
+                onMouseEnter={() => setShowMessageActionsRight(true)}
+                onMouseLeave={() => setShowMessageActionsRight(false)}
+              >
+                <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
                   <div className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg">
                     <span className="text-white">message right</span>
                   </div>
@@ -249,23 +250,24 @@ export default function Chat() {
                     }
                   >
                     <div>
-                      <BsReply />
+                      <BsReply className="cursor-pointer" />
                     </div>
                     <div>
-                      <BsEmojiLaughing />
+                      <BsEmojiLaughing className="cursor-pointer" />
                     </div>
                     <div>
-                      <FaRegTrashAlt />
+                      <FaRegTrashAlt className="cursor-pointer" />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="message-right flex flex-row-reverse my-10 items-center justify-start relative">
-                <div
-                  className="message-right__block flex flex-row-reverse items-center gap-x-3"
-                  onMouseEnter={() => setShowImageActionsRight(true)}
-                  onMouseLeave={() => setShowImageActionsRight(false)}
-                >
+
+              <div
+                className="message-right flex flex-row-reverse my-10 items-center justify-start relative"
+                onMouseEnter={() => setShowImageActionsRight(true)}
+                onMouseLeave={() => setShowImageActionsRight(false)}
+              >
+                <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
                   <div className="message-left__text max-w-xl mr-8 relative shadow-lg">
                     <img
                       src="https://www.befunky.com/images/prismic/5ddfea42-7377-4bef-9ac4-f3bd407d52ab_landing-photo-to-cartoon-img5.jpeg?auto=avif,webp&format=jpg&width=863"
@@ -281,13 +283,13 @@ export default function Chat() {
                     }
                   >
                     <div>
-                      <BsReply />
+                      <BsReply className="cursor-pointer" />
                     </div>
                     <div>
-                      <BsEmojiLaughing />
+                      <BsEmojiLaughing className="cursor-pointer" />
                     </div>
                     <div>
-                      <FaRegTrashAlt />
+                      <FaRegTrashAlt className="cursor-pointer" />
                     </div>
                   </div>
                 </div>
