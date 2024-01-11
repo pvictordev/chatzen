@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Auth() {
-  // const { setTheme } = useTheme();
   return (
     <section className="auth w-full h-screen flex items-center justify-center px-5 relative">
       <a href="https://github.com/pvictordev" target="_blank">

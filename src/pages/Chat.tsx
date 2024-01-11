@@ -47,7 +47,7 @@ export default function Chat() {
           className={
             showDialog
               ? "container-sidebar w-96 h-screen max-md:hidden"
-              : "container-sidebar w-full h-screen "
+              : "container-sidebar w-full h-screen"
           }
         >
           <header className="siderbar-header flex justify-between p-3 border-y">
