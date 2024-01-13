@@ -162,7 +162,7 @@ export default function Chat() {
                   onClick={() => handleDialog()}
                 />
               </div>
-              {/* <FaRegUser className="w-10 h-10 rounded-full border-2 border-slate-900" /> */}
+
               <img
                 src="https://icones.pro/wp-content/uploads/2021/05/symbole-de-l-homme-violet.png"
                 alt=""
