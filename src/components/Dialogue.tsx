@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { IoImagesOutline } from "react-icons/io5";
 import { BsEmojiLaughing, BsReply } from "react-icons/bs";
 import { FiSend } from "react-icons/fi";
@@ -14,6 +13,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useTheme } from "./ui/theme-provider";
+
+interface DialogueProps {
+  showDialog: boolean;
+  handleDialog: () => void;
+  setShowMessageActionsRight: (value: boolean) => void;
+  setShowMessageActionsLeft: (value: boolean) => void;
+  setShowImageActionsRight: (value: boolean) => void;
+  showImageActionsRight: boolean;
+  showMessageActionsRight: boolean;
+  showMessageActionsLeft: boolean;
+}
 
 export default function Dialogue({
   showDialog,
@@ -24,12 +35,16 @@ export default function Dialogue({
   showImageActionsRight,
   showMessageActionsRight,
   showMessageActionsLeft,
-}) {
+}: DialogueProps) {
+  const { theme } = useTheme();
+
   return (
     <div
       className={
         showDialog
-          ? "container-chat flex-1 bg-slate-100 flex flex-col h-screen"
+          ? `container-chat flex-1 ${
+              theme === "dark" ? "bg-customDarkChat" : "bg-slate-100"
+            } flex flex-col h-screen`
           : "container-chat bg-slate-100 h-screen hidden"
       }
     >
@@ -187,7 +202,9 @@ export default function Dialogue({
             </div>
           </div>
           <input
-            className="w-full outline-none text-lg px-3 py-1 rounded-2xl bg-slate-200"
+            className={`w-full outline-none text-lg px-3 py-1 rounded-2xl ${
+              theme === "dark" ? "bg-slate-500" : "bg-slate-200"
+            }`}
             type="text"
             placeholder="Message..."
           />

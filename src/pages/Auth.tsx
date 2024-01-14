@@ -4,7 +4,6 @@ import github from "../assets/github.png";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-// import { MdLightMode } from "react-icons/md";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Auth() {

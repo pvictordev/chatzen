@@ -17,8 +17,16 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { useTheme } from "./ui/theme-provider";
 
-export default function Sidebar({ showDialog, handleDialog }) {
+interface SidebarProps {
+  showDialog: boolean;
+  handleDialog: () => void;
+}
+
+export default function Sidebar({ showDialog, handleDialog }: SidebarProps) {
+  const { theme } = useTheme();
+
   return (
     <div
       className={
@@ -101,7 +109,9 @@ export default function Sidebar({ showDialog, handleDialog }) {
       >
         <div className="conversation-container">
           <div
-            className="conversation-block flex items-center border-b h-28 p-3 gap-x-2 hover:bg-slate-200 cursor-pointer"
+            className={`conversation-block flex items-center border-b h-28 p-3 gap-x-2 cursor-pointer ${
+              theme === "dark" ? "hover:bg-slate-900" : "hover:bg-slate-200"
+            }`}
             onClick={() => handleDialog()}
           >
             <div className="conversation-profile">
