@@ -1,29 +1,6 @@
 import { useState } from "react";
-import { IoImagesOutline } from "react-icons/io5";
-import { BsEmojiLaughing, BsPerson, BsReply } from "react-icons/bs";
-import { FiSend } from "react-icons/fi";
-import { IoIosInformationCircle } from "react-icons/io";
-import { ImFilesEmpty } from "react-icons/im";
-import { FaRegUser } from "react-icons/fa6";
-import { FaRegTrashAlt } from "react-icons/fa";
-import { RxExit } from "react-icons/rx";
-import logo from "../assets/chatzen-icon.png";
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/mode-toggle";
+import Sidebar from "@/components/Sidebar";
+import Dialogue from "@/components/Dialogue";
 
 export default function Chat() {
   //switch between chat and sidebar
@@ -43,7 +20,7 @@ export default function Chat() {
   return (
     <div className="chat w-full h-screen justify-center">
       <div className="chat-container flex">
-        <div
+        {/* <div
           className={
             showDialog
               ? "container-sidebar w-96 h-screen max-md:hidden"
@@ -145,9 +122,9 @@ export default function Chat() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div
+        {/* <div
           className={
             showDialog
               ? "container-chat flex-1 bg-slate-100 flex flex-col h-screen"
@@ -196,16 +173,6 @@ export default function Chat() {
             className="chat-section flex flex-col-reverse justify-end"
             style={{ height: "calc(100% - 143px)" }}
           >
-            {/* <div className="section-no-messages flex flex-col items-center gap-y-4">
-              <img
-                src="https://booru.vineshroom.net/_images/ed0495e29c1296c6cb74e1e4bcf770b0/95138%20-%20animated%20artist%3AMagnetismMelodic%20chat%20gif%20goblin%20goblinsauce%20streamer%3Avinny.gif"
-                className="w-50 h-48"
-                alt=""
-              />
-              <span className="text-slate-500">
-                No message recently, start chatting now
-              </span>
-            </div> */}
             <div className="section-message overflow-y-scroll no-scrollbar">
               <div
                 className="message-left flex flex-row-reverse my-10 items-center justify-end relative round"
@@ -317,7 +284,20 @@ export default function Chat() {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
+
+        <Sidebar showDialog={showDialog} handleDialog={handleDialog} />
+
+        <Dialogue
+          showDialog={showDialog}
+          handleDialog={handleDialog}
+          setShowMessageActionsRight={setShowMessageActionsRight}
+          setShowImageActionsRight={setShowImageActionsRight}
+          setShowMessageActionsLeft={setShowMessageActionsLeft}
+          showMessageActionsLeft={showMessageActionsLeft}
+          showMessageActionsRight={showMessageActionsRight}
+          showImageActionsRight={showImageActionsRight}
+        />
       </div>
     </div>
   );
