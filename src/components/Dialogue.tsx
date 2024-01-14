@@ -4,7 +4,7 @@ import { FiSend } from "react-icons/fi";
 import { IoIosInformationCircle, IoMdDownload } from "react-icons/io";
 import { ImFilesEmpty } from "react-icons/im";
 import { FaRegTrashAlt, FaRegFilePdf } from "react-icons/fa";
-// FaRegFileWord;
+//FaRegFileWord
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import {
   Dialog,
@@ -15,6 +15,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useTheme } from "./ui/theme-provider";
+
+import MessageLeft from "./ui/message-left";
+import MessageRight from "./ui/message-right";
 
 interface DialogueProps {
   showDialog: boolean;
@@ -102,7 +105,7 @@ export default function Dialogue({
               </span>
             </div> */}
         <div className="section-message overflow-y-scroll no-scrollbar">
-          <div
+          {/* <div
             className="message-left flex flex-row-reverse my-10 items-center justify-end relative round"
             onMouseEnter={() => setShowMessageActionsLeft(true)}
             onMouseLeave={() => setShowMessageActionsLeft(false)}
@@ -126,7 +129,44 @@ export default function Dialogue({
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+          {/* <div
+            className="message-right flex flex-row-reverse my-10 items-center justify-start relative round"
+            onMouseEnter={() => setShowMessageActionsRight(true)}
+            onMouseLeave={() => setShowMessageActionsRight(false)}
+          >
+            <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
+              <div className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg">
+                <span className="text-white">message right</span>
+              </div>
+              <div
+                className={
+                  showMessageActionsRight
+                    ? "message-left-actions gap-x-3 text-slate-600 flex"
+                    : "hidden"
+                }
+              >
+                <div>
+                  <BsReply className="cursor-pointer" />
+                </div>
+                <div>
+                  <BsEmojiLaughing className="cursor-pointer" />
+                </div>
+                <div>
+                  <FaRegTrashAlt className="cursor-pointer" />
+                </div>
+              </div>
+            </div>
+          </div> */}
+          <MessageLeft
+            setShowMessageActionsLeft={setShowMessageActionsLeft}
+            showMessageActionsLeft={showMessageActionsLeft}
+          />
+
+          <MessageRight
+            setShowMessageActionsRight={setShowMessageActionsRight}
+            showMessageActionsRight={showMessageActionsRight}
+          />
 
           <div
             className="message-left flex flex-row-reverse my-10 items-center justify-end relative round"
@@ -154,35 +194,6 @@ export default function Dialogue({
                 </div>
                 <div>
                   <BsReply className="cursor-pointer" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="message-right flex flex-row-reverse my-10 items-center justify-start relative round"
-            onMouseEnter={() => setShowMessageActionsRight(true)}
-            onMouseLeave={() => setShowMessageActionsRight(false)}
-          >
-            <div className="message-right__block flex flex-row-reverse items-center gap-x-3">
-              <div className="message-left__text p-3 max-w-xl mr-8 relative rounded-right bg-appColor shadow-lg">
-                <span className="text-white">message right</span>
-              </div>
-              <div
-                className={
-                  showMessageActionsRight
-                    ? "message-left-actions gap-x-3 text-slate-600 flex"
-                    : "hidden"
-                }
-              >
-                <div>
-                  <BsReply className="cursor-pointer" />
-                </div>
-                <div>
-                  <BsEmojiLaughing className="cursor-pointer" />
-                </div>
-                <div>
-                  <FaRegTrashAlt className="cursor-pointer" />
                 </div>
               </div>
             </div>
