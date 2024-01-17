@@ -18,14 +18,34 @@ import {
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { useTheme } from "./ui/theme-provider";
+import { useEffect } from "react";
 
 interface SidebarProps {
   showDialog: boolean;
+  setShowDialog: (show: boolean) => void;
   handleDialog: () => void;
 }
 
-export default function Sidebar({ showDialog, handleDialog }: SidebarProps) {
+export default function Sidebar({
+  showDialog,
+  setShowDialog,
+  handleDialog,
+}: SidebarProps) {
   const { theme } = useTheme();
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mdWidth = window.innerWidth >= 768;
+      if (mdWidth !== showDialog && !showDialog) {
+        setShowDialog(mdWidth);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [showDialog, setShowDialog]);
+
+  console.log(showDialog);
 
   return (
     <div

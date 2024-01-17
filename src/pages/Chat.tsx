@@ -20,7 +20,11 @@ export default function Chat() {
   return (
     <div className="chat w-full h-screen justify-center">
       <div className="chat-container flex">
-        <Sidebar showDialog={showDialog} handleDialog={handleDialog} />
+        <Sidebar
+          showDialog={showDialog}
+          setShowDialog={setShowDialog}
+          handleDialog={handleDialog}
+        />
 
         <Dialogue
           showDialog={showDialog}
