@@ -4,7 +4,6 @@ import { FiSend } from "react-icons/fi";
 import { IoIosInformationCircle, IoMdDownload } from "react-icons/io";
 import { ImFilesEmpty } from "react-icons/im";
 import { FaRegTrashAlt, FaRegFilePdf } from "react-icons/fa";
-//FaRegFileWord
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import {
   Dialog,
